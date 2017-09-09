@@ -2,9 +2,14 @@
   "name": "palindrome",
   "version": "1.0.0",
   "description": "Simple in-memory database for palindrome strings",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test",
+    "lint": "eslint --ext .js .",
+    "vuln": "nsp check",
+    "precommit": "yarn lint",
+    "prepush": "yarn test && yarn vuln",
+    "start": "node ./src/index"
   },
   "repository": {
     "type": "git",
@@ -15,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/lud77/palindrome/issues"
   },
-  "homepage": "https://github.com/lud77/palindrome#readme"
+  "homepage": "https://github.com/lud77/palindrome#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.6.1",
+    "husky": "^0.14.3",
+    "mocha": "^3.5.0",
+    "nsp": "^2.8.0"
+  }
 }
