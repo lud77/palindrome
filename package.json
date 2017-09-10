@@ -4,7 +4,7 @@
   "description": "Simple in-memory database for palindrome strings",
   "main": "./src/index.js",
   "scripts": {
-    "test": "mocha ./test",
+    "test": "mocha ./test --recursive",
     "lint": "eslint --ext .js .",
     "vuln": "nsp check",
     "precommit": "yarn lint",
