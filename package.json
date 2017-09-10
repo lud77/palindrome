@@ -21,8 +21,14 @@
     "url": "https://github.com/lud77/palindrome/issues"
   },
   "homepage": "https://github.com/lud77/palindrome#readme",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.18.0",
+    "express": "^4.15.4",
+    "moment": "^2.18.1",
+    "ramda": "^0.24.1"
+  },
   "devDependencies": {
+    "chai": "^4.1.2",
     "eslint": "^4.6.1",
     "husky": "^0.14.3",
     "mocha": "^3.5.0",
