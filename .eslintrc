@@ -10,6 +10,7 @@
     "rules": {
         "comma-dangle": ["error", "never"],
         "indent": ["error", 2],
-        "no-cond-assign": ["error", "always"]
+        "no-cond-assign": ["error", "always"],
+        "semi": ["error", "always"]
     }
 }
