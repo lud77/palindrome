@@ -1,7 +1,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const { isPalindrome } = require('../src/domain/palindrome');
+const { isPalindrome } = require('../../src/domain/palindrome');
 
 describe('domain methods', () => {
   describe('isPalindrome', () => {
