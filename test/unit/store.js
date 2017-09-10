@@ -1,3 +1,4 @@
+const sinon = require('sinon');
 const chai = require('chai');
 const assert = chai.assert;
 
@@ -8,6 +9,16 @@ const store = storeFactory({
 });
 
 describe('store', () => {
+  let clock;
+
+  before(() => {
+    clock = sinon.useFakeTimers();
+  });
+
+  after(() => {
+    clock.restore();
+  });
+
   it('should store any type of string', () => {
     store.nuke();
     store.addSentence('abc');
@@ -31,5 +42,17 @@ describe('store', () => {
     store.addSentence('lmn');
     const res = store.retrieveSentences();
     assert.equal(res.length, 10);
+  });
+
+  it('should only persist a sequence for 10 minutes', () => {
+    store.nuke();
+    store.addSentence('abc');
+    store.addSentence('bcd');
+    const resBefore = store.retrieveSentences();
+    assert.equal(resBefore.length, 2);
+
+    clock.tick(600010);
+    const resAfter = store.retrieveSentences();
+    assert.equal(resAfter.length, 0);
   });
 });
