@@ -14,9 +14,10 @@ Stores palindrome strings, regardless of punctuation and space.
 
 ### Endpoints
 
-#### POST localhost:29292/palindrome
+#### POST localhost:29292/palindromes
 
 - Add a palindrome string to the database
+- Returns true if the word is a palindrome, false otherwise
 
 #### GET localhost:29292/palindromes
 
