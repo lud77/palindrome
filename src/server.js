@@ -6,14 +6,14 @@ const { logger, requestLogger, errorLogger } = require('./logger');
 
 const palindromesControllerFactory = require('./controllers/palindromes');
 const palindromesRoutesFactory = require('./routes/palindromes');
-const palindromeDomain = require('./domain/palindrome');
+const palindromesDomain = require('./domain/palindromes');
 const storeFactory = require('./store');
 
 const store = storeFactory({
   timeLimit: 10,
   sizeLimit: 10
 });
-const palindromesController = palindromesControllerFactory(logger, palindromeDomain, store);
+const palindromesController = palindromesControllerFactory(logger, palindromesDomain, store);
 const palindromesRoutes = palindromesRoutesFactory(palindromesController);
 
 const app = express();
