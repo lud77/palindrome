@@ -24,7 +24,7 @@ describe('store', () => {
     store.addSentence('abc');
     store.addSentence('bcd,.---');
     const res = store.retrieveSentences();
-    assert.deepEqual(res, ['abc', 'bcd,.---']);
+    assert.deepEqual(res.sort(), ['abc', 'bcd,.---']);
   });
 
   it('should allow a maximum of 10 entries', () => {
@@ -54,5 +54,15 @@ describe('store', () => {
     clock.tick(600010);
     const resAfter = store.retrieveSentences();
     assert.equal(resAfter.length, 0);
+  });
+
+  it('should only persist an instance of each sequence', () => {
+    store.nuke();
+    store.addSentence('abc');
+    store.addSentence('abc');
+    store.addSentence('bcd');
+    store.addSentence('bcd');
+    const res = store.retrieveSentences();
+    assert.deepEqual(res.sort(), ['abc', 'bcd']);
   });
 });
