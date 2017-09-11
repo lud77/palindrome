@@ -22,3 +22,8 @@ Stores palindrome strings, regardless of punctuation and space.
 #### GET localhost:29292/palindromes
 
 - Get a list of the last 10 palindromes added in the last 10 minutes
+
+#### DELETE localhost:29292/palindromes
+
+- Only available when ENV=test
+- Clears the store removing all entries
