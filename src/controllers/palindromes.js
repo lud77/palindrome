@@ -6,6 +6,11 @@ module.exports = (logger, { isPalindrome }, { addSentence, retrieveSentences, nu
 
     logger.info('Add sentence', sentence);
 
+    if (!sentence) {
+      res.status(403).json({ isValid: false });
+      return undefined;
+    }
+
     const isValid = isPalindrome(sentence);
 
     if (isValid) {

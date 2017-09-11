@@ -96,4 +96,14 @@ describe('POST /palindromes', () => {
       .then(done)
       .catch(done);
   });
+
+  it('should not allow empty strings', (done) => {
+    postSentence('')
+      .expect(403)
+      .then((res) => {
+        assert.deepEqual(res.body, { isValid: false });
+      })
+      .then(done)
+      .catch(done);
+  });
 });
