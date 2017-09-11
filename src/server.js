@@ -4,6 +4,18 @@ const expressWinston = require('express-winston');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
+const palindromesControllerFactory = require('./controllers/palindromes');
+const palindromesRoutesFactory = require('./routes/palindromes');
+const palindromeDomain = require('./domain/palindrome');
+const storeFactory = require('./store');
+
+const store = storeFactory({
+  timeLimit: 10,
+  sizeLimit: 10
+});
+const palindromesController = palindromesControllerFactory(logger, palindromeDomain, store);
+const palindromesRoutes = palindromesRoutesFactory(palindromesController);
+
 const app = express();
 
 app.disable('etag');
@@ -25,6 +37,8 @@ app.use(expressWinston.logger({
     })
   ]
 }));
+
+app.use('/palindromes', palindromesRoutes);
 
 // error logger
 app.use(expressWinston.errorLogger({
