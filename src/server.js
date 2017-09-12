@@ -8,12 +8,13 @@ const palindromesControllerFactory = require('./controllers/palindromes');
 const palindromesRoutesFactory = require('./routes/palindromes');
 const palindromesDomain = require('./domain/palindromes');
 const storeFactory = require('./store');
+const config = require('./config');
 
 // create instances of the necessary components using dependency injection
 
 const store = storeFactory({
-  timeLimit: 10,
-  sizeLimit: 10
+  timeLimit: config.timeLimit,
+  sizeLimit: config.sizeLimit
 });
 const palindromesController = palindromesControllerFactory(logger, palindromesDomain, store);
 const palindromesRoutes = palindromesRoutesFactory(palindromesController);
