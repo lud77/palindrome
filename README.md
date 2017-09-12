@@ -12,12 +12,16 @@ Stores palindrome strings, regardless of punctuation and space.
 - test the package using `yarn test`
 - launch the service using `yarn start`
 
+The `yarn start` command will start the server on localhost on port 29292.
+
+
 ### Endpoints
 
 #### POST localhost:29292/palindromes
 
 - Add a palindrome string to the database
 - Returns true if the word is a palindrome, false otherwise
+- Payload for the POST operation is `{ sentence: "a palindromic sentence" }`
 
 #### GET localhost:29292/palindromes
 
@@ -26,4 +30,4 @@ Stores palindrome strings, regardless of punctuation and space.
 #### DELETE localhost:29292/palindromes
 
 - Only available when ENV=test
-- Clears the store removing all entries
+- Clears the store, removing all entries
