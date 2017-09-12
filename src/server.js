@@ -12,6 +12,8 @@ const config = require('./config');
 
 // create instances of the necessary components using dependency injection
 
+// create instances of the necessary components using dependency injection
+
 const store = storeFactory({
   timeLimit: config.timeLimit,
   sizeLimit: config.sizeLimit
